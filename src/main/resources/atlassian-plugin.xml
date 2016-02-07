@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+  <plugin-info>
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+    <param name="plugin-icon">images/pluginIcon.png</param>
+    <param name="plugin-logo">images/pluginLogo.png</param>
+  </plugin-info>
+  <!-- add our i18n resource -->
+  <resource type="i18n" name="i18n" location="jira-plugin-laboratory"/>
+  <!-- add our web resources -->
+  <web-resource key="laboratory-resources" name="laboratory Web Resources">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <resource type="download" name="jira-plugin-laboratory.css" location="/css/jira-plugin-laboratory.css"/>
+    <resource type="download" name="jira-plugin-laboratory.js" location="/js/jira-plugin-laboratory.js"/>
+    <resource type="download" name="images/" location="/images"/>
+    <context>laboratory-resources</context>
+  </web-resource>
+  <webwork1 key="laboratory-webwork-module" name="Laboratory Webwork Module" i18n-name-key="laboratory-webwork-module.name">
+    <description key="laboratory-webwork-module.description">The Laboratory Webwork Module Plugin</description>
+    <actions>
+      <action name="org.bitbucket.shnarevich.laboratory.webwork.LaboratoryWebworkAction" alias="laboratory">
+        <view name="success">/templates/laboratory-webwork-module/success.vm</view>
+      </action>
+    </actions>
+  </webwork1>
+  <web-item name="Laboratory Web Item" i18n-name-key="laboratory-web-item.name" key="laboratory-web-item" section="system.top.navigation.bar" weight="47">
+    <description key="laboratory-web-item.description">The Laboratory Web Item Plugin</description>
+    <label>Лаборатория</label>
+    <link linkId="laboratory-web-item-link">/secure/laboratory.jspa</link>
+  </web-item>
+  <component-import key="ao" name="Active Objects service" interface="com.atlassian.activeobjects.external.ActiveObjects">
+    <description>Component to access Active Objects functionality from the plugin</description>
+  </component-import>
+  <ao key="ao-module">
+    <entity>org.bitbucket.shnarevich.laboratory.entity.UserEntity</entity>
+  </ao>
+  <rest name="Rest Resource" i18n-name-key="rest-resource.name" key="rest-resource" path="/restresource" version="1.0">
+    <description key="rest-resource.description">The Rest Resource Plugin</description>
+  </rest>
+</atlassian-plugin>

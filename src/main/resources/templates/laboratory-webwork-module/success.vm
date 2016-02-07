@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body>
+    <div id="aui-page-panel">
+        <div class="aui-page-panel-inner">
+            <section class="aui-page-panel-content">
+                <div class="aui-tabs vertical-tabs">
+                <ul class="tabs-menu">
+                    <li class="menu-item active-tab">
+                        <a href="#tabs-A"><strong>A</strong></a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#tabs-B"><strong>B</strong></a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="#tabs-C"><strong>C</strong></a>
+                    </li>
+                </ul>
+                <div class="tabs-pane active-pane" id="tabs-A">
+                    <h2>1 tab</h2>
+                    <p>Ooo eee</p>
+                </div>
+                <div class="tabs-pane" id="tabs-B">
+                    <form class="loading" action="laboratory!add.jspa">
+                        <input type="text" name="name"/>
+                        <input type="submit" value="OK"/>
+
+                        <table class="aui" id="project-config-students-table">
+                            <thead>
+                            <tr>
+                                <th><!--icon--></th>
+                                <th>name</th>
+                                <th>surname</th>
+                                <th>created</th>
+                                <th><!--buttons--></th>
+                                <th><!--throbber--></th>
+                                $user
+                            </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                        <div class="jira-restfultable-init">
+                            <span class="aui-icon aui-icon-wait">Loading...</span>
+                            <span class="aui-icon aui-icon-small aui-iconfont-component">Insert meaningful text here for accessibility</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="tabs-pane" id="tabs-C">
+                </div>
+            </div>
+                </section>
+        </div>
+    </div>
+</html>
